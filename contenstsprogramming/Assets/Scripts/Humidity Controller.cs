@@ -9,7 +9,12 @@ public class HumidityController : MonoBehaviour
     
     [Header("습도 Panel")]
     public GameObject humidityPanel;
-
+    
+    [Header("습도 슬라이더")]
+    public Slider humiditySlider;
+    
+    [Header("습도 텍스트")]
+    public TextMeshProUGUI humidityText;
     
     void Start()
     {
@@ -37,5 +42,10 @@ public class HumidityController : MonoBehaviour
     }
     
     // ========== Slider 이벤트 처리 ==========
-
+    
+    public void OnHumidityChanged(float value)
+    {
+        // 습도 값을 퍼센트로 표시 (F0 = 소수점 없음)
+        humidityText.text = value.ToString("F0") + "%";
+    }
 }
